@@ -1,0 +1,86 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Ноутбуки",
+      "description": "Компьютеры и Ноутбуки"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Смартфоны",
+      "description": "Смартфоны и Гаджеты"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Пылесосы",
+      "description": "Техника для дома"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Холодильники",
+      "description": "Техника для кухни"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "Apple MacBook Air 13",
+      "description": "Ноутбук Apple MacBook Air 13 M1/8/256 Space Gray (MGN63)",
+      "image": "",
+      "category": 1,
+      "price": 93000,
+      "created_at": "2024-04-21T09:22:54.371Z",
+      "updated_at": "2024-04-21T09:22:54.371Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "Samsung Galaxy S24 Ultra",
+      "description": "Смартфон Samsung Galaxy S24 Ultra 12/256GB Cobalt Violet",
+      "image": "",
+      "category": 2,
+      "price": 147000,
+      "created_at": "2024-04-21T09:27:46.483Z",
+      "updated_at": "2024-04-21T09:27:46.483Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "Робот-пылесос Dreame D9 Plus",
+      "description": "Робот-пылесос с базой очистки Dreame D9 Plus White",
+      "image": "",
+      "category": 3,
+      "price": 24000,
+      "created_at": "2024-04-21T09:31:46.789Z",
+      "updated_at": "2024-04-21T09:31:46.790Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "Холодильник Candy",
+      "description": "Холодильник Candy CCRN 6180W белый",
+      "image": "",
+      "category": 4,
+      "price": 33000,
+      "created_at": "2024-04-21T09:33:41.110Z",
+      "updated_at": "2024-04-21T09:33:41.110Z"
+    }
+  }
+]
