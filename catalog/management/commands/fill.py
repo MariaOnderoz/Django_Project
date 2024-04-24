@@ -5,39 +5,42 @@ from catalog.models import Category, Product
 
 
 class Command(BaseCommand):
-
     @staticmethod
     def json_read_data():
         with open('data.json', encoding='UTF-8') as file:
             return json.load(file)
 
-
     def handle(self, *args, **options):
-
+        # Очистка таблиц для устранения конфликтов ID
         Category.objects.all().delete()
         Product.objects.all().delete()
 
-        product_for_create = []
         category_for_create = []
+        product_for_create = []
 
-        for category in Command.json_read_data():
-            if category['model'] == 'catalog.category':
-                category_for_create.append(
-                    Category(name=category['fields']['name'],
-                             description=category['fields']['description']))
+        data = self.json_read_data()  # Чтение данных один раз
+
+        for entry in data:
+            if entry['model'] == 'catalog.category':
+                category_instance = Category(
+                    id=entry['pk'],  # Установка PK из JSON
+                    name=entry['fields']['name'],
+                    description=entry['fields']['description']
+                )
+                category_for_create.append(category_instance)
 
         Category.objects.bulk_create(category_for_create)
 
-        for product in Command.json_read_data():
-            if product['model'] == 'catalog.product':
-                product_for_create.append(
-                    Product(name=product['fields']['name'],
-                            description=product['fields']['description'],
-                            category=Category.objects.get(pk=product['fields']['category']),
-                            price=product['fields']['price']))
+        for entry in data:
+            if entry['model'] == 'catalog.product':
+                product_instance = Product(
+                    id=entry['pk'],  # Установка PK из JSON
+                    name=entry['fields']['name'],
+                    description=entry['fields']['description'],
+                    category_id=entry['fields']['category'],  # Прямое использование PK категории
+                    price=entry['fields']['price']
+                )
+                product_for_create.append(product_instance)
+
         Product.objects.bulk_create(product_for_create)
-
-
-
-
-
+        print("Data fill успешно выполнен")
