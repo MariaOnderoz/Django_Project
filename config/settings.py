@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os.path
 from pathlib import Path
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,9 +82,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dj_catalog',
+        'NAME': os.getenv('DB_Name'),
         'USER': 'postgres',
-        'PASSWORD': '1002',
+        'PASSWORD': os.getenv('DB_Password'),
         'HOST': '127.0.0.1',
         'PORT': '5432'
         }
