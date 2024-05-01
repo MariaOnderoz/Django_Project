@@ -1,7 +1,8 @@
-{% load static %}
 <!doctype html>
+{% load static %}
 <html lang="ru" data-bs-theme="auto">
   <head>
+    <script src="{% static 'js/color-modes.js' %}"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Пример на bootstrap 5: Простой одностраничный шаблон · Версия v5.3.1">
@@ -157,13 +158,14 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Магазин электроники и бытовой техники</h1>
-        <p class="lead text-body-secondary">SkyStore</p>
+        <h1 class="fw-light">SkyStore</h1>
+        <p class="lead text-body-secondary">Магазин электроники и бытовой техники</p>
       </div>
     </div>
   </section>
 
   {% block content %}
+
   {% endblock %}
 
 </main>
