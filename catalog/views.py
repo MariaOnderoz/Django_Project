@@ -3,11 +3,15 @@ from catalog.models import Product
 
 
 def home(request):
+    products = Product.objects.all()
+    context = {
+        "products": products
+    }
+    return render(request, 'catalog/home.html', context)
 
-    return render(request, 'catalog/home.html')
 
 def contacts(request):
-    if request.method == POST:
+    if request.method == 'POST':
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         message = request.POST.get('message')
@@ -16,12 +20,6 @@ def contacts(request):
 
     return render(request, 'catalog/contacts.html')
 
-def products(request):
-    products = Product.objects.all()
-    context = {
-        "products": products
-    }
-    return render(request, 'catalog/products.html', context)
 
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
