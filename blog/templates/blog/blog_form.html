@@ -1,0 +1,24 @@
+{% extends catalog/base.html %}
+{% blog content %}
+<div class="col-12">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary form-control">
+                            {% if object.is_published %}
+                             Сохранить
+                             {% else %}
+                             Создать
+                             {% endif %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblog %}
