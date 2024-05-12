@@ -9,8 +9,8 @@
                     <div class="card-body">
                         {% csrf_token %}
                     </div>
-                    <button type="submit" class="btn btn-primary form-control">Удалить</button>
-                    <a class="btn btn-primary" href="{% url 'catalog:product_list' %}" role="button">Отменить</a>
+                    <button type="submit" class="btn btn-primary btn-outline-danger form-control">Удалить</button>
+                    <a class="btn btn-primary btn-outline-primary" href="{% url 'catalog:product_list' %}" role="button">Отменить</a>
                 </div>
             </form>
         </div>

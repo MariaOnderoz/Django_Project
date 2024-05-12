@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy, reverse
 from blog.models import Blog
@@ -23,10 +23,10 @@ class BlogCreateView(CreateView):
 class BlogListView(ListView):
     model = Blog
 
-    def get_queryset(self, *args, **kwargs):
-        queryset = super().get_queryset(*args, **kwargs)
-        queryset = queryset.filter(is_published=True)
-        return queryset
+    # def get_queryset(self, *args, **kwargs):
+    #     queryset = super().get_queryset(*args, **kwargs)
+    #     queryset = queryset.filter(is_published=True)
+    #     return queryset
 
 
 class BlogDetailView(DetailView):
@@ -65,5 +65,7 @@ def toggle_publish(request, pk):
         blog_item.is_published = False
     else:
         blog_item.is_published = True
+
+    blog_item.save()
     return redirect(reverse('blog:blog_list'))
 
