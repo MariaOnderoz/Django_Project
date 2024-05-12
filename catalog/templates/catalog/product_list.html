@@ -1,0 +1,31 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for object in object_list %}
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm form-control">
+              <img src="{{ object.image | media_filter }}">
+              <div class="card-body">
+                <p class="card-text">{{ object.name }}</p>
+                <p class="card-text">{{ object.description|slice:":100" }}</p>
+                <p class="card-text">Цена: {{ object.price }} руб.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-toolbar">
+                    <a class="btn btn-primary mr-2 btn-sm" href="{% url 'catalog:product_detail' object.pk %}" role="button">Перейти</a>
+                    <a class="btn btn-primary mr-2 btn-sm" href="{% url 'catalog:product_update' object.pk %}" role="button">Редактировать</a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'catalog:product_delete' object.pk %}" role="button">Удалить</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+{% endblock %}

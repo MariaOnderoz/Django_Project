@@ -29,6 +29,9 @@
         <div class="container">
           <h1 class="jumbotron-heading">SkyStore</h1>
           <p class="lead text-muted">Магазин электроники и бытовой техники</p>
+            <p>
+                <a class="btn btn-primary" href="{% url 'catalog:product_create' %}" role="button">Добавить товар</a>
+            </p>
         </div>
       </section>
 
@@ -38,11 +41,12 @@
 
     </main>
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="col-12">
         <div class="row">
-            <div class="col-12 col-md">
-                SkyStore
-                <small class="d-block mb-3 text-muted">&copy; 2024 - {% now 'Y' %}</small>
-            </div>
+<!--            <div class="col-12 col-md">-->
+<!--                SkyStore-->
+<!--                <small class="d-block mb-3 text-muted">&copy; 2024 - {% now 'Y' %}</small>-->
+<!--            </div>-->
             <div class="col-4 col-md">
                 <h5>Категории</h5>
                 <ul class="list-unstyled text-small">
@@ -66,7 +70,23 @@
                 </ul>
             </div>
         </div>
+        </div>
+        <div class="container">
+        <p class="float-right">
+          <a href="#">Наверх</a>
+        </p>
+          <p class="float-left">&copy; 2024 - {% now 'Y' %}</p>
+      </div>
     </footer>
+
+<!--    <footer class="text-body-secondary py-5">-->
+<!--      <div class="container">-->
+<!--        <p class="float-right">-->
+<!--          <a href="#">Back to top</a>-->
+<!--        </p>-->
+<!--          <p class="float-left">&copy; 2024 - {% now 'Y' %}</p>-->
+<!--      </div>-->
+<!--    </footer>-->
 
 
     <!-- Bootstrap core JavaScript
