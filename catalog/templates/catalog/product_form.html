@@ -9,13 +9,14 @@
                         {% csrf_token %}
                         {{ form.as_p }}
                     </div>
-                     <button type="submit" class="btn btn-primary form-control">
+                     <button type="submit" class="btn btn-primary mb-2 form-control">
                          {% if object %}
                          Сохранить
                          {% else %}
                          Создать
                          {% endif %}
                      </button>
+                     <a class="btn btn-primary mb-2" href="{% url 'catalog:product_list' %}" role="button">Назад</a>
                 </div>
             </form>
         </div>

@@ -1,5 +1,5 @@
-{% extends catalog/base.html %}
-{% blog content %}
+{% extends 'catalog/base.html' %}
+{% block content %}
 <div class="col-12">
     <div class="row">
         <div class="col-6">
@@ -15,10 +15,11 @@
                              Создать
                              {% endif %}
                         </button>
+                        <a class="btn btn-primary form-control mt-2" href="{% url 'catalog:product_list' %}" role="button">Назад</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endblog %}
+{% endblock %}
