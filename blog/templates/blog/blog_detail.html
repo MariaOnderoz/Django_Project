@@ -8,8 +8,9 @@
           <div class="col-md-8">
             <div class="card shadow-sm">
                 {% if object.preview %}
-                    <img src="{{ object.preview | media_filter }}" onError="this.src= '/static/images/plug_blog.png'" class="card-img-top" alt="photo">
+                    <img src="{{ object.preview | media_filter }}" class="card-img-top" alt="photo">
                 {% endif %}
+                 <img src="{{ object.preview | media_filter }}"
               <div class="card-body">
                 <p class="card-text">{{ object.title }} ({{ object.slug }})</p>
                 <p class="card-text">Содержание: {{ object.content }}</p>
