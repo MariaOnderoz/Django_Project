@@ -38,6 +38,10 @@ class ProductForm(StyleFormMixin, ModelForm):
 
 
 class VersionForm(StyleFormMixin, ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['version_indicator'].widget.attrs['class'] = ''
+
     class Meta:
         model = Version
         fields = "__all__"
