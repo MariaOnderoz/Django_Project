@@ -8,3 +8,4 @@ pillow
 ipython
 dotenv== 0.0.5
 pytils
+python-dotenv==1.0.1
