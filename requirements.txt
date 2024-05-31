@@ -6,5 +6,5 @@ typing_extensions==4.11.0
 psycopg2-binary
 pillow
 ipython
-dotenv
+dotenv== 0.0.5
 pytils
