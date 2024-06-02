@@ -38,6 +38,12 @@ class ProductForm(StyleFormMixin, ModelForm):
         return cleaned_data
 
 
+class ProductModeratorForm(StyleFormMixin, ModelForm):
+    class Meta:
+        model = Product
+        fields = ("description", "category", "is_published",)
+
+
 class VersionForm(StyleFormMixin, ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -16,8 +16,10 @@
                 <p class="card-text">Цена: {{ object.price }} руб.</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-toolbar">
-                    <a class="btn btn-primary mr-2 btn-sm" href="{% url 'catalog:product_detail' object.pk %}" role="button">Перейти</a>
+                    {% if perms.catalog.cancel_publication and perms.catalog.change_product_description and perms.catalog.change_category or user == catalog.owner %}
                     <a class="btn btn-primary mr-2 btn-sm" href="{% url 'catalog:product_update' object.pk %}" role="button">Редактировать</a>
+                    {% endif %}
+                    <a class="btn btn-primary mr-2 btn-sm" href="{% url 'catalog:product_detail' object.pk %}" role="button">Перейти</a>
                     <a class="btn btn-primary btn-sm" href="{% url 'catalog:product_delete' object.pk %}" role="button">Удалить</a>
                   </div>
                 </div>

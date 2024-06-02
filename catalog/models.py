@@ -25,6 +25,7 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='Цена за покупку')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата последнего изменения')
+    is_published = models.BooleanField(default=False, verbose_name='Признак публикации')
 
     owner = models.ForeignKey(User, verbose_name='Владелец', on_delete=models.SET_NULL, **NULLABLE)
 
@@ -35,6 +36,11 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+        permissions = [
+            ("cancel_publication", "может отменять публикацию продукта"),
+            ("change_product_description", "может менять описание любого продукта"),
+            ("change_category", "может менять категорию любого продукта")
+        ]
 
 
 class Version(models.Model):
